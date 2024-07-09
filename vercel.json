@@ -3,8 +3,7 @@
     "builds": [
       {
         "src": "client",
-        "use": "@vercel/static", 
-        "out": "public" 
+        "use": "@vercel/static"
       },
       {
         "src": "server",  
