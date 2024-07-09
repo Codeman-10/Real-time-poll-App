@@ -3,6 +3,7 @@ const http = require("http");
 const cors = require("cors");
 const { initializeSocket } = require("./socket/socket");
 const pollsRouter = require("./routes/poll.route"); // Import the polls route handler
+const path = require("path"); // Add this line to import the path module
 
 const app = express();
 const server = http.createServer(app);
