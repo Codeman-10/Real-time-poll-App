@@ -25,7 +25,10 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
 });
+const PORT = process.env.PORT || 3001;
 
-server.listen(3001, () => {
-  console.log("Server is running on port 3001");
-});
+// server.listen(PORT, () => {
+//   console.log("Server is running on port 3001");
+// });
+
+module.exports = app;
