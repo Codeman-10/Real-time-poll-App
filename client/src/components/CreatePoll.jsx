@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
-import axios from "axios";
-import useStore from "../store/store";
+import axios from "../utils/axiosConfig";
 
-const socket = io("http://localhost:3001");
 
 function CreatePoll() {
   const [question, setQuestion] = useState("");
@@ -19,7 +17,7 @@ function CreatePoll() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("http://localhost:3001/api/polls", {
+    const res = await axios.post("/api/polls", {
       question,
       options,
     });

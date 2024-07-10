@@ -11,22 +11,28 @@ const io = initializeSocket(server);
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.use(
   "/api/polls",
   (req, res, next) => {
+    console.log("Sdsd")
     req.io = io;
     next();
   },
   pollsRouter
 );
 
-app.use(express.static(path.join(__dirname, "../client/dist")));
+const indexPath = path.join(__dirname, '../client/dist/index.html');
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
+app.get("/", (req, res) => {
+  console.log("Sdsdsds")
+
+  res.sendFile(indexPath);
 });
-const PORT = process.env.PORT || 3001;
+
+
+const PORT = process.env.PORT || 3003;
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

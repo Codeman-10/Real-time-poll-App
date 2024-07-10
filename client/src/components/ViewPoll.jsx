@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import io from "socket.io-client";
-import axios from "axios";
+import axios from "../utils/axiosConfig";
 import useStore from "../store/store";
 
-const socket = io("http://localhost:3001");
+const socket = io(process.env.PUBLIC_API_URL);
 
 function ViewPoll() {
   const polls = useStore((state) => state.polls);
@@ -12,7 +12,7 @@ function ViewPoll() {
 
   useEffect(() => {
     const fetchPolls = async () => {
-      const response = await axios.get("http://localhost:3001/api/polls");
+      const response = await axios.get("/api/polls");
       console.log(...response.data);
       if (response.data.length > 0) {
         for (let i = 0; i < response.data.length; i++) {

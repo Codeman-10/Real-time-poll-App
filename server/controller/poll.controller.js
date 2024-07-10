@@ -8,7 +8,6 @@ const createPoll = (req, res) => {
     votes: Array(req.body.options.length).fill(0),
   };
   polls.unshift(poll);
-  console.log(object)
   req.io.emit("pollCreated", poll);
   res.status(201).send(poll);
 };
