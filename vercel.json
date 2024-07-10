@@ -1,16 +1,15 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "client",
-        "use": "@vercel/static"
-      },
-      {
-        "src": "server",  
-        "use": "@vercel/node",  
-        "config": { 
-          "watch": ["server/**/*"] 
-        }
+  "projects": [
+    {
+      "src": "client/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"  
       }
-    ]
-  }
+    },
+    {
+      "src": "server/package.json",
+      "use": "@vercel/node"
+    }
+  ]
+}
