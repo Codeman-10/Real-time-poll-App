@@ -3,12 +3,12 @@ import io from "socket.io-client";
 import axios from "../utils/axiosConfig";
 import useStore from "../store/store";
 
-const socket = io(process.env.PUBLIC_API_URL);
 
 function ViewPoll() {
   const polls = useStore((state) => state.polls);
   const addPoll = useStore((state) => state.addPoll);
   const updatePoll = useStore((state) => state.updatePoll);
+  const socket = io(window.location.origin);
 
   useEffect(() => {
     const fetchPolls = async () => {
@@ -28,7 +28,6 @@ function ViewPoll() {
       updatePoll(updatedPoll); // Ensure updatePoll updates the state correctly
     });
     socket.on("pollCreated", (bnew) => {
-      alert("gg");
       addPoll(bnew); // Ensure addPoll handles a single poll object
     });
   }, []);
