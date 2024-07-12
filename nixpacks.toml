@@ -11,9 +11,6 @@ commands = [
 
 [phases.start]
 commands = [
-  "cd server && node index.js"
+  "cd server && node server.js"
 ]
 
-[[phases.build.environment]]
-name = "NODE_ENV"
-value = "production"
