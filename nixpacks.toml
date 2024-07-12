@@ -1,19 +1,15 @@
 [phases.install]
 commands = [
-  "cd client && npm install",
-  "cd server && npm install"
+  "npm install --prefix server",
+  "npm install --prefix client"
 ]
 
 [phases.build]
 commands = [
-  "cd client && npm run build"
+  "npm run build --prefix client"
 ]
 
 [phases.start]
 commands = [
-  "cd server && node server.js"
+  "node server/server.js"
 ]
-
-[[phases.build.environment]]
-key = "NODE_ENV"
-value = "production"
