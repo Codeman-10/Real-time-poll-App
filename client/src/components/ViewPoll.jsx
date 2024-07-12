@@ -8,7 +8,7 @@ function ViewPoll() {
   const polls = useStore((state) => state.polls);
   const addPoll = useStore((state) => state.addPoll);
   const updatePoll = useStore((state) => state.updatePoll);
-  const socket = io(window.location.origin);
+  const socket = io();
 
   useEffect(() => {
     const fetchPolls = async () => {
