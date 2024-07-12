@@ -14,3 +14,6 @@ commands = [
   "cd server && node server.js"
 ]
 
+[[phases.build.environment]]
+key = "NODE_ENV"
+value = "production"
