@@ -47,7 +47,7 @@ function ViewPoll() {
         <div key={poll.question}>
           <h3>{poll.question}</h3>
           <ul>
-            {poll.options.map((option, index) => (
+            {poll.options?.map((option, index) => (
               <li key={option}>
                 {option} - {poll.votes[index]} votes
                 <button onClick={() => handleVote(poll.id, index)}>Vote</button>
